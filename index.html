@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      .fas {
+        font-size: 3rem;
+      }
+      div {
+        margin: 50px;
+      }
+      #battery {
+        color: #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chain"></div>
+    <div id="battery"></div>
+    <div id="hourglass"></div>
+
+    <script>
+      function brokeChain() {
+        //   set the first icon
+        let chain = document.getElementById("chain");
+        chain.innerHTML = "<i class='fas fa-link'></i>";
+        // change the icon
+        setTimeout(function() {
+          chain.innerHTML = "<i class='fas fa-unlink'></i>";
+        }, 1000);
+      }
+
+      brokeChain();
+      //   repeat the animation
+      setInterval(brokeChain, 2000);
+
+      //   Battery Charging Animation
+      function chargingBattery() {
+        let battery = document.getElementById("battery");
+        battery.innerHTML = `<i class="fas fa-battery-empty"></i>`;
+
+        setTimeout(() => {
+          battery.innerHTML = `<i class="fas fa-battery-quarter"></i>`;
+        }, 1000);
+
+        setTimeout(() => {
+          battery.innerHTML = `<i class="fas fa-battery-half"></i>`;
+        }, 2000);
+
+        setTimeout(() => {
+          battery.innerHTML = `<i class="fas fa-battery-three-quarters"></i>`;
+        }, 3000);
+
+        setTimeout(() => {
+          battery.innerHTML = `<i class="fas fa-battery-full"></i>`;
+        }, 4000);
+      }
+
+      chargingBattery();
+
+      setInterval(chargingBattery, 5000);
+
+      //   Hourglass Animation
+
+      function hourGlass() {
+        let hour = document.getElementById("hourglass");
+        hour.innerHTML = `<i class="fas fa-hourglass-start"></i>`;
+
+        setTimeout(() => {
+          hour.innerHTML = `<i class="fas fa-hourglass-half"></i>`;
+        }, 1000);
+
+        setTimeout(() => {
+          hour.innerHTML = `<i class="fas fa-hourglass-end"></i>`;
+        }, 2000);
+
+        // Rotate
+        // setTimeout(() => {
+        //   hour.style.transform = "rotate(360deg)";
+        // }, 3000);
+      }
+
+      hourGlass();
+
+      setInterval(hourGlass, 3000);
+    </script>
+  </body>
+</html>
